@@ -11,7 +11,7 @@
     {
       "binding": "DB",
       "database_name": "sinchon-cosfes-db",
-      "database_id": "PASTE_YOUR_D1_DATABASE_ID_HERE"
+      "database_id": "c8a5754e-00a5-44ff-ac46-d12c2f72cc33"
     }
   ],
   "r2_buckets": [
