@@ -117,7 +117,7 @@ button { cursor: pointer; }
   background: rgba(255,255,180,.65);
 }
 
-.eyebrow, .section-kicker {
+.eyebrow {
   color: var(--pink);
   font-size: 14px;
   font-weight: 900;
