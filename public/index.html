@@ -17,6 +17,7 @@
     <!-- =========================
          HEADER
     ========================== -->
+
     <header class="header">
 
       <div class="brand-area">
@@ -53,6 +54,7 @@
     <!-- =========================
          FINDER
     ========================== -->
+
     <section class="finder">
 
       <div class="section-heading">
@@ -65,9 +67,7 @@
       </div>
 
 
-      <!-- =========================
-           DATE + SEARCH
-      ========================== -->
+      <!-- DATE + SEARCH -->
 
       <div class="date-search-row">
 
@@ -109,9 +109,7 @@
       </div>
 
 
-      <!-- =========================
-           CATEGORY
-      ========================== -->
+      <!-- CATEGORY -->
 
       <div
         class="filter-row"
@@ -153,9 +151,7 @@
       </div>
 
 
-      <!-- =========================
-           POSTS
-      ========================== -->
+      <!-- POSTS -->
 
       <div
         class="posts-grid"
@@ -218,6 +214,7 @@
 
 
           <!-- 닉네임 -->
+
           <div class="form-group">
 
             <label for="nickname">
@@ -236,6 +233,7 @@
 
 
           <!-- X -->
+
           <div class="form-group">
 
             <label for="xAccount">
@@ -259,6 +257,7 @@
 
 
           <!-- 참여 방식 -->
+
           <div class="form-group">
 
             <label>
@@ -312,6 +311,7 @@
 
 
           <!-- 날짜 / 시간 -->
+
           <div class="form-group">
 
             <label>
@@ -383,6 +383,7 @@
 
 
           <!-- 장르 -->
+
           <div class="form-group">
 
             <label for="genre">
@@ -393,13 +394,14 @@
               id="genre"
               type="text"
               maxlength="80"
-              placeholder="ex. 애니명 / 캐릭터"
+              placeholder="ex. 원피스 / 루피"
             >
 
           </div>
 
 
           <!-- 한마디 -->
+
           <div class="form-group">
 
             <label for="message">
@@ -416,6 +418,7 @@
 
 
           <!-- 이미지 -->
+
           <div class="form-group">
 
             <label>
@@ -458,6 +461,7 @@
 
 
           <!-- 삭제 비밀번호 -->
+
           <div class="form-group">
 
             <label for="deletePassword">
@@ -500,6 +504,49 @@
           ></p>
 
         </form>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         POST DETAIL MODAL
+    ========================== -->
+
+    <div
+      class="modal post-detail-modal"
+      id="postDetailModal"
+      aria-hidden="true"
+    >
+
+      <div
+        class="modal-background"
+        id="postDetailBackground"
+      ></div>
+
+
+      <div
+        class="modal-content post-detail-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="postDetailTitle"
+      >
+
+        <button
+          class="close-button"
+          id="closePostDetail"
+          type="button"
+          aria-label="닫기"
+        >
+          ×
+        </button>
+
+
+        <div
+          id="postDetailContent"
+          class="post-detail-inner"
+        ></div>
 
       </div>
 
