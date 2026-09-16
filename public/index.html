@@ -3,17 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>신촌 코스어 페스타</title>
-  <meta name="description" content="신촌 코스어 페스타 참가자 찾기">
+
+  <meta
+    name="description"
+    content="신촌 코스어 페스타 참가자 찾기"
+  >
+
   <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
+
   <div class="page">
 
+    <!-- ================================
+         HEADER
+    ================================= -->
+
     <header class="header">
+
       <div class="brand-area">
-        <img src="/images/logo.png" alt="신촌 코스어 페스타" class="logo" onerror="this.style.display='none'">
+
+        <img
+          src="/images/logo.png"
+          alt="신촌 코스어 페스타"
+          class="logo"
+          onerror="this.style.display='none'"
+        >
 
         <div class="event-date">
           <strong>2026. 09. 26–27</strong>
@@ -23,161 +41,599 @@
         <div class="event-location">
           신촌 스타광장　|　창천문화공원　|　U-PLEX 신촌점
         </div>
+
       </div>
 
-      <button class="write-button" id="openWriteModal">
+      <button
+        class="write-button"
+        id="openWriteModal"
+        type="button"
+      >
         내 게시물 적기 ✦
       </button>
+
     </header>
 
+
+    <!-- ================================
+         MAIN
+    ================================= -->
+
     <main>
+
+      <!-- HERO -->
+
       <section class="hero">
+
         <div class="hero-card">
-          <p class="eyebrow">SINCHON COSFES</p>
-          <h1>누가<br><span>26일</span>에 올까?</h1>
+
+          <p class="eyebrow">
+            SINCHON COSFES
+          </p>
+
+          <h1>
+            누가<br>
+            <span>26일</span>에 올까?
+          </h1>
+
           <p class="hero-copy">
             같은 장르의 코스어와<br>
             사진사를 찾아보세요!
           </p>
+
         </div>
+
 
         <div class="hero-note">
-          <span class="note-title">닉네임</span>
+
+          <span class="note-title">
+            닉네임
+          </span>
+
           <div class="dot-line"></div>
-          <strong>코스어 · 카메라 · 일반</strong>
-          <p>참여 방식에 체크해주세요!</p>
+
+          <strong>
+            코스어 · 카메라 · 일반
+          </strong>
+
+          <p>
+            참여 방식에 체크해주세요!
+          </p>
+
         </div>
+
       </section>
+
+
+
+      <!-- ================================
+           PARTICIPANT FINDER
+      ================================= -->
 
       <section class="finder">
+
         <div class="section-heading">
+
           <div>
-            <p class="section-kicker">PARTICIPANTS</p>
-            <h2>참가자 찾기 <span id="postCount">0명</span></h2>
+
+            <p class="section-kicker">
+              PARTICIPANTS
+            </p>
+
+            <h2>
+              참가자 찾기
+              <span id="postCount">0명</span>
+            </h2>
+
           </div>
+
         </div>
+
+
+
+        <!-- CATEGORY + SEARCH -->
 
         <div class="filter-row">
-          <div class="filter-group" id="categoryFilters">
-            <button class="pill active" data-filter="all">전체</button>
-            <button class="pill" data-filter="코스어">코스어</button>
-            <button class="pill" data-filter="카메라">카메라</button>
-            <button class="pill" data-filter="일반">일반</button>
+
+          <div
+            class="filter-group"
+            id="categoryFilters"
+          >
+
+            <button
+              class="pill active"
+              data-filter="all"
+              type="button"
+            >
+              전체
+            </button>
+
+            <button
+              class="pill"
+              data-filter="코스어"
+              type="button"
+            >
+              코스어
+            </button>
+
+            <button
+              class="pill"
+              data-filter="카메라"
+              type="button"
+            >
+              카메라
+            </button>
+
+            <button
+              class="pill"
+              data-filter="일반"
+              type="button"
+            >
+              일반
+            </button>
+
           </div>
+
 
           <label class="search-box">
+
             <span>⌕</span>
-            <input id="searchInput" type="search" placeholder="장르 / 캐릭터 검색">
+
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="장르 / 캐릭터 검색"
+            >
+
           </label>
+
         </div>
+
+
+
+        <!-- DAY FILTER -->
 
         <div class="day-tabs">
-          <button class="day-tab active" data-day="26">
-            <strong>26</strong><span>SAT</span>
+
+          <button
+            class="day-tab active"
+            data-day="26"
+            type="button"
+          >
+            <strong>26</strong>
+            <span>SAT</span>
           </button>
-          <button class="day-tab" data-day="27">
-            <strong>27</strong><span>SUN</span>
+
+
+          <button
+            class="day-tab"
+            data-day="27"
+            type="button"
+          >
+            <strong>27</strong>
+            <span>SUN</span>
           </button>
+
         </div>
 
-        <div class="time-filters">
-          <span>시간대</span>
-          <button class="time-pill active" data-time="all">전체</button>
-          <button class="time-pill" data-time="오전">오전</button>
-          <button class="time-pill" data-time="오후">오후</button>
-          <button class="time-pill" data-time="저녁">저녁</button>
+
+
+        <!-- PARTICIPANT POSTS -->
+
+        <div
+          class="posts-grid"
+          id="postsContainer"
+        >
+
+          <div class="loading">
+            참가자 정보를 불러오는 중...
+          </div>
+
         </div>
 
-        <div class="posts-grid" id="postsContainer">
-          <div class="loading">참가자 정보를 불러오는 중...</div>
-        </div>
       </section>
+
     </main>
 
-    <div class="modal" id="writeModal" aria-hidden="true">
+
+
+    <!-- ================================
+         WRITE MODAL
+    ================================= -->
+
+    <div
+      class="modal"
+      id="writeModal"
+      aria-hidden="true"
+    >
+
       <div class="modal-background"></div>
 
-      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <button class="close-button" id="closeWriteModal" aria-label="닫기">×</button>
+
+      <div
+        class="modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+
+        <!-- CLOSE -->
+
+        <button
+          class="close-button"
+          id="closeWriteModal"
+          type="button"
+          aria-label="닫기"
+        >
+          ×
+        </button>
+
+
+
+        <!-- MODAL TITLE -->
 
         <div class="modal-title">
-          <p class="section-kicker">✦ PARTICIPANT</p>
-          <h2 id="modalTitle">내 게시물 적기</h2>
-          <p>행사에서 만날 사람들에게 내 정보를 알려주세요!</p>
+
+          <p class="section-kicker">
+            ✦ PARTICIPANT
+          </p>
+
+          <h2 id="modalTitle">
+            내 게시물 적기
+          </h2>
+
+          <p>
+            행사에서 만날 사람들에게
+            내 정보를 알려주세요!
+          </p>
+
         </div>
 
+
+
+        <!-- ================================
+             FORM
+        ================================= -->
+
         <form id="postForm">
-          <div class="form-group">
-            <label for="nickname">닉네임 <span>*</span></label>
-            <input id="nickname" type="text" maxlength="20" placeholder="예: 춘자" required>
-          </div>
+
+
+          <!-- 닉네임 -->
 
           <div class="form-group">
-            <label for="xAccount">X 계정</label>
-            <div class="prefix-input">
-              <span>@</span>
-              <input id="xAccount" type="text" maxlength="30" placeholder="아이디">
-            </div>
-          </div>
 
-          <div class="form-group">
-            <label>참여 방식 <span>*</span></label>
-            <div class="choice-group">
-              <label class="choice"><input type="radio" name="category" value="코스어" required><span>코스어</span></label>
-              <label class="choice"><input type="radio" name="category" value="카메라"><span>카메라</span></label>
-              <label class="choice"><input type="radio" name="category" value="일반"><span>일반</span></label>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>참가 날짜 <span>*</span></label>
-            <div class="choice-group">
-              <label class="choice"><input type="checkbox" name="days" value="26"><span>26 SAT</span></label>
-              <label class="choice"><input type="checkbox" name="days" value="27"><span>27 SUN</span></label>
-            </div>
-            <p class="help-text">둘 다 오는 경우 2개 모두 선택해주세요.</p>
-          </div>
-
-          <div class="form-group">
-            <label>오는 시간대</label>
-            <div class="time-grid">
-              <label class="time-choice"><input type="checkbox" name="time" value="오전"><span>오전<small>09–12시</small></span></label>
-              <label class="time-choice"><input type="checkbox" name="time" value="오후"><span>오후<small>12–17시</small></span></label>
-              <label class="time-choice"><input type="checkbox" name="time" value="저녁"><span>저녁<small>17–21시</small></span></label>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="genre">장르 / 캐릭터</label>
-            <input id="genre" type="text" maxlength="80" placeholder="예: 블루록 / 이사기">
-          </div>
-
-          <div class="form-group">
-            <label for="message">한마디</label>
-            <textarea id="message" maxlength="120" placeholder="같이 사진 찍어요! / 친해져요!"></textarea>
-          </div>
-
-          <div class="form-group">
-            <label>착장 / 참고 이미지</label>
-            <label class="image-upload" for="imageFile">
-              <strong>＋</strong>
-              <span>이미지를 선택해주세요</span>
-              <small>JPG / PNG / WEBP · 최대 5MB</small>
+            <label for="nickname">
+              닉네임 <span>*</span>
             </label>
-            <input id="imageFile" type="file" accept="image/jpeg,image/png,image/webp" hidden>
-            <div class="image-preview" id="imagePreview"></div>
+
+            <input
+              id="nickname"
+              type="text"
+              maxlength="20"
+              placeholder="예: 춘자"
+              required
+            >
+
           </div>
 
-          <button class="submit-button" id="submitButton" type="submit">
-            게시물 등록하기 ✦
+
+
+          <!-- X ACCOUNT -->
+
+          <div class="form-group">
+
+            <label for="xAccount">
+              X 계정
+            </label>
+
+            <div class="prefix-input">
+
+              <span>@</span>
+
+              <input
+                id="xAccount"
+                type="text"
+                maxlength="30"
+                placeholder="아이디"
+              >
+
+            </div>
+
+          </div>
+
+
+
+          <!-- CATEGORY -->
+
+          <div class="form-group">
+
+            <label>
+              참여 방식 <span>*</span>
+            </label>
+
+            <div class="choice-group">
+
+              <label class="choice">
+
+                <input
+                  type="radio"
+                  name="category"
+                  value="코스어"
+                  required
+                >
+
+                <span>
+                  코스어
+                </span>
+
+              </label>
+
+
+              <label class="choice">
+
+                <input
+                  type="radio"
+                  name="category"
+                  value="카메라"
+                >
+
+                <span>
+                  카메라
+                </span>
+
+              </label>
+
+
+              <label class="choice">
+
+                <input
+                  type="radio"
+                  name="category"
+                  value="일반"
+                >
+
+                <span>
+                  일반
+                </span>
+
+              </label>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- ================================
+               DATE + TIME
+          ================================= -->
+
+          <div class="form-group">
+
+            <label>
+              오는 날짜 / 시간 <span>*</span>
+            </label>
+
+
+            <div class="day-time-grid">
+
+
+              <!-- 26 SAT -->
+
+              <div class="day-time-row">
+
+                <label class="day-time-check">
+
+                  <input
+                    type="checkbox"
+                    name="days"
+                    value="26"
+                  >
+
+                  <span>
+                    26 SAT
+                  </span>
+
+                </label>
+
+
+                <input
+                  id="time26"
+                  type="time"
+                  disabled
+                  aria-label="26일 오는 시간"
+                >
+
+              </div>
+
+
+
+              <!-- 27 SUN -->
+
+              <div class="day-time-row">
+
+                <label class="day-time-check">
+
+                  <input
+                    type="checkbox"
+                    name="days"
+                    value="27"
+                  >
+
+                  <span>
+                    27 SUN
+                  </span>
+
+                </label>
+
+
+                <input
+                  id="time27"
+                  type="time"
+                  disabled
+                  aria-label="27일 오는 시간"
+                >
+
+              </div>
+
+
+            </div>
+
+
+            <p class="help-text">
+              오는 날짜를 선택하고
+              도착 예정 시간을 입력해주세요.
+            </p>
+
+          </div>
+
+
+
+          <!-- GENRE -->
+
+          <div class="form-group">
+
+            <label for="genre">
+              장르 / 캐릭터
+            </label>
+
+            <input
+              id="genre"
+              type="text"
+              maxlength="80"
+              placeholder="예: 블루록 / 이사기"
+            >
+
+          </div>
+
+
+
+          <!-- MESSAGE -->
+
+          <div class="form-group">
+
+            <label for="message">
+              한마디
+            </label>
+
+            <textarea
+              id="message"
+              maxlength="120"
+              placeholder="같이 사진 찍어요! / 친해져요!"
+            ></textarea>
+
+          </div>
+
+
+
+          <!-- IMAGE -->
+
+          <div class="form-group">
+
+            <label>
+              착장 / 참고 이미지
+            </label>
+
+
+            <label
+              class="image-upload"
+              for="imageFile"
+            >
+
+              <strong>
+                ＋
+              </strong>
+
+              <span>
+                이미지를 선택해주세요
+              </span>
+
+              <small>
+                JPG / PNG / WEBP · 최대 5MB
+              </small>
+
+            </label>
+
+
+            <input
+              id="imageFile"
+              type="file"
+              accept="image/jpeg,image/png,image/webp"
+              hidden
+            >
+
+
+            <div
+              class="image-preview"
+              id="imagePreview"
+            ></div>
+
+          </div>
+
+
+
+          <!-- ================================
+               DELETE PASSWORD
+          ================================= -->
+
+          <div class="form-group">
+
+            <label for="deletePassword">
+              삭제 비밀번호 <span>*</span>
+            </label>
+
+
+            <input
+              id="deletePassword"
+              type="password"
+              inputmode="numeric"
+              autocomplete="new-password"
+              pattern="[0-9]{4}"
+              maxlength="4"
+              minlength="4"
+              placeholder="숫자 4자리"
+              required
+            >
+
+
+            <p class="help-text">
+              게시물 삭제 시 필요한 번호입니다.
+              꼭 기억해주세요!
+            </p>
+
+          </div>
+
+
+
+          <!-- SUBMIT -->
+
+          <button
+            class="submit-button"
+            id="submitButton"
+            type="submit"
+          >
+            게시물 등록하기
           </button>
 
-          <p class="form-status" id="formStatus"></p>
+
+          <p
+            class="form-status"
+            id="formStatus"
+          ></p>
+
+
         </form>
+
       </div>
+
     </div>
+
   </div>
 
+
+  <!-- SCRIPT -->
+
   <script src="/script.js"></script>
+
 </body>
 </html>
