@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap');
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 :root {
   --pink: #ff58a7;
   --hot-pink: #ff24a9;
   --sky: #67ddf4;
+  --blue: #53aef4;
   --mint: #c9f9e5;
   --yellow: #fff5b7;
   --ink: #25413f;
@@ -13,7 +18,9 @@
   --white: #fff;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: 'Noto Sans KR', sans-serif;
@@ -23,15 +30,30 @@ body {
   background-size: 12px 12px;
 }
 
-button, input, textarea { font: inherit; }
-button { cursor: pointer; }
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
 
 .page {
   min-height: 100vh;
   overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(255,255,255,.75) 0 46%, rgba(198,250,226,.72) 100%);
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.75) 0 46%,
+      rgba(198,250,226,.72) 100%
+    );
 }
+
+/* ========================================
+   헤더
+======================================== */
 
 .header {
   width: min(1440px, calc(100% - 70px));
@@ -43,7 +65,11 @@ button { cursor: pointer; }
   gap: 30px;
 }
 
-.brand-area { display: flex; flex-direction: column; gap: 7px; }
+.brand-area {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
 
 .logo {
   width: 390px;
@@ -63,7 +89,9 @@ button { cursor: pointer; }
   font-size: 30px;
 }
 
-.event-date span { font-size: 20px; }
+.event-date span {
+  font-size: 20px;
+}
 
 .event-location {
   color: var(--pink);
@@ -87,7 +115,6 @@ button { cursor: pointer; }
   box-shadow: 2px 2px 0 var(--ink);
 }
 
-
 .note-title {
   color: #fff;
   font-size: 28px;
@@ -98,10 +125,18 @@ button { cursor: pointer; }
 .dot-line {
   height: 18px;
   margin: 18px 0;
-  background-image: radial-gradient(circle, var(--pink) 0 4px, transparent 4.5px);
+  background-image:
+    radial-gradient(
+      circle,
+      var(--pink) 0 4px,
+      transparent 4.5px
+    );
   background-size: 24px 24px;
 }
 
+/* ========================================
+   참가자 찾기
+======================================== */
 
 .finder {
   width: min(1440px, calc(100% - 70px));
@@ -128,26 +163,45 @@ button { cursor: pointer; }
   gap: 15px;
 }
 
-.filter-group, .time-filters {
+.filter-group,
+.time-filters {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   align-items: center;
 }
 
-.pill, .time-pill {
+/* ========================================
+   메인 화면 카테고리 필터
+   코스어 / 카메라 / 일반
+======================================== */
+
+.pill,
+.time-pill {
   padding: 9px 17px;
-  border: 2px solid var(--blue);
+  border: 2px solid var(--sky);
   border-radius: 999px;
   background: #fff;
-  color: var(--blue);
+  color: #45b9d1;
   font-weight: 900;
+  transition: .15s;
 }
 
-.pill.active, .time-pill.active {
-  background: var(--blue);
+.pill:hover,
+.time-pill:hover {
+  background: #effcff;
+}
+
+.pill.active,
+.time-pill.active {
+  background: var(--sky);
+  border-color: var(--sky);
   color: #fff;
 }
+
+/* ========================================
+   검색
+======================================== */
 
 .search-box {
   width: 270px;
@@ -174,30 +228,59 @@ button { cursor: pointer; }
   background: transparent;
 }
 
+/* ========================================
+   메인 날짜 선택
+   26 SAT / 27 SUN
+======================================== */
+
 .day-tabs {
   margin-top: 22px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 12px;
 }
 
 .day-tab {
-  min-height: 150px;
-  border: 3px solid var(--sky);
-  border-radius: 44px;
+  min-height: 70px;
+  border: 2px solid #eadf9a;
+  border-radius: 999px;
   background: var(--yellow);
-  color: var(--pink);
+  color: var(--ink);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
-  box-shadow: 0 12px 24px rgba(50,180,205,.14);
-  transition: .18s;
+  gap: 10px;
+  box-shadow: none;
+  transition: .15s;
+  cursor: pointer;
 }
 
-.day-tab strong { font-size: 64px; line-height: 1; }
-.day-tab span { font-size: 28px; font-weight: 900; }
-.day-tab.active { transform: translateY(-5px); }
+.day-tab:hover {
+  background: #ffef86;
+  border-color: #e6c900;
+  transform: translateY(-1px);
+}
+
+.day-tab strong {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.day-tab span {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.day-tab.active {
+  background: #ffe96f;
+  border-color: #e6c900;
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+/* ========================================
+   시간 필터
+======================================== */
 
 .time-filters {
   margin-top: 18px;
@@ -217,6 +300,10 @@ button { cursor: pointer; }
   color: #2f9cb5;
   border-color: var(--sky);
 }
+
+/* ========================================
+   게시물
+======================================== */
 
 .posts-grid {
   margin-top: 25px;
@@ -250,7 +337,9 @@ button { cursor: pointer; }
   font-weight: 900;
 }
 
-.post-content { padding: 20px; }
+.post-content {
+  padding: 20px;
+}
 
 .post-top {
   display: flex;
@@ -305,13 +394,18 @@ button { cursor: pointer; }
   white-space: pre-wrap;
 }
 
-.loading, .empty {
+.loading,
+.empty {
   grid-column: 1 / -1;
   padding: 70px 20px;
   text-align: center;
   color: #789293;
   line-height: 1.8;
 }
+
+/* ========================================
+   모달
+======================================== */
 
 .modal {
   position: fixed;
@@ -322,7 +416,9 @@ button { cursor: pointer; }
   padding: 18px;
 }
 
-.modal.show { display: grid; }
+.modal.show {
+  display: grid;
+}
 
 .modal-background {
   position: absolute;
@@ -336,11 +432,13 @@ button { cursor: pointer; }
   width: min(630px, 100%);
   max-height: 92vh;
   overflow-y: auto;
-  padding: 40px;
+  padding: 40px 24px 40px 40px;
   border: 4px solid var(--ink);
   border-radius: 34px;
   background: linear-gradient(145deg,#fff,#f1ffff);
   box-shadow: 9px 9px 0 var(--ink);
+
+  scrollbar-gutter: stable;
 }
 
 .close-button {
@@ -353,20 +451,43 @@ button { cursor: pointer; }
   font-size: 34px;
 }
 
-.modal-title { margin-bottom: 27px; }
-.modal-title h2 { margin-top: 5px; font-size: 31px; font-weight: 900; }
-.modal-title p:last-child { margin-top: 5px; color: #849596; font-size: 13px; }
+.modal-title {
+  margin-bottom: 27px;
+}
 
-.form-group { margin-bottom: 21px; }
+.modal-title h2 {
+  margin-top: 5px;
+  font-size: 31px;
+  font-weight: 900;
+}
+
+.modal-title p:last-child {
+  margin-top: 5px;
+  color: #849596;
+  font-size: 13px;
+}
+
+/* ========================================
+   입력 폼
+======================================== */
+
+.form-group {
+  margin-bottom: 21px;
+}
+
 .form-group > label:first-child {
   display: block;
   margin-bottom: 8px;
   font-size: 14px;
   font-weight: 900;
 }
-.form-group > label:first-child span { color: var(--pink); }
 
-input[type="text"], textarea {
+.form-group > label:first-child span {
+  color: var(--pink);
+}
+
+input[type="text"],
+textarea {
   width: 100%;
   border: 2px solid #c6e7eb;
   border-radius: 13px;
@@ -374,8 +495,16 @@ input[type="text"], textarea {
   outline: 0;
   background: #fff;
 }
-input[type="text"]:focus, textarea:focus { border-color: var(--pink); }
-textarea { min-height: 85px; resize: vertical; }
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: var(--pink);
+}
+
+textarea {
+  min-height: 85px;
+  resize: vertical;
+}
 
 .prefix-input {
   display: flex;
@@ -385,36 +514,50 @@ textarea { min-height: 85px; resize: vertical; }
   background: #fff;
   overflow: hidden;
 }
-.prefix-input span { padding-left: 14px; color: #8b999a; font-weight: 900; }
-.prefix-input input { border: 0 !important; }
+
+.prefix-input span {
+  padding-left: 14px;
+  color: #8b999a;
+  font-weight: 900;
+}
+
+.prefix-input input {
+  border: 0 !important;
+}
+
+/* ========================================
+   팝업 카테고리
+   코스어 / 카메라 / 일반
+   ★ 메인 필터와 별개
+======================================== */
 
 .choice-group {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
-.choice input, .time-choice input { display: none; }
+
+.choice input,
+.time-choice input {
+  display: none;
+}
 
 .choice span {
   display: block;
-  padding: 11px 20px;
-  border: 2px solid var(--sky);
+  padding: 10px 17px;
+  border: 2px solid #c7e6ea;
   border-radius: 999px;
   background: #fff;
-  color: #45b9d1;
+  color: var(--ink);
   font-weight: 900;
   cursor: pointer;
   transition: .15s;
 }
 
-.choice span:hover {
-  background: #effcff;
-}
-
 .choice input:checked + span {
-  border-color: var(--sky);
-  background: var(--sky);
-  color: #fff;
+  border-color: var(--pink);
+  background: #ffcef0;
+  color: #ff219d;
 }
 
 .help-text {
@@ -422,6 +565,10 @@ textarea { min-height: 85px; resize: vertical; }
   color: #a1acad;
   font-size: 11px;
 }
+
+/* ========================================
+   기존 시간 선택
+======================================== */
 
 .time-grid {
   display: grid;
@@ -439,17 +586,23 @@ textarea { min-height: 85px; resize: vertical; }
   font-weight: 900;
   cursor: pointer;
 }
+
 .time-choice small {
   display: block;
   margin-top: 3px;
   color: #a0adae;
   font-size: 10px;
 }
+
 .time-choice input:checked + span {
   border-color: var(--blue);
   background: #ddfaff;
   color: #2799c0;
 }
+
+/* ========================================
+   이미지 업로드
+======================================== */
 
 .image-upload {
   min-height: 145px;
@@ -463,13 +616,22 @@ textarea { min-height: 85px; resize: vertical; }
   color: #65a5ae;
   cursor: pointer;
 }
-.image-upload strong { color: var(--pink); font-size: 30px; }
-.image-upload small { margin-top: 4px; color: #aab8b9; }
+
+.image-upload strong {
+  color: var(--pink);
+  font-size: 30px;
+}
+
+.image-upload small {
+  margin-top: 4px;
+  color: #aab8b9;
+}
 
 .image-preview {
   display: none;
   margin-top: 10px;
 }
+
 .image-preview img {
   width: 100%;
   max-height: 250px;
@@ -477,6 +639,10 @@ textarea { min-height: 85px; resize: vertical; }
   border-radius: 14px;
   background: #f4ffff;
 }
+
+/* ========================================
+   등록 버튼
+======================================== */
 
 .submit-button {
   width: 100%;
@@ -488,7 +654,11 @@ textarea { min-height: 85px; resize: vertical; }
   font-weight: 900;
   box-shadow: 4px 4px 0 var(--ink);
 }
-.submit-button:disabled { opacity: .55; cursor: wait; }
+
+.submit-button:disabled {
+  opacity: .55;
+  cursor: wait;
+}
 
 .form-status {
   min-height: 20px;
@@ -500,7 +670,7 @@ textarea { min-height: 85px; resize: vertical; }
 }
 
 /* ========================================
-   날짜 / 시간 선택
+   팝업 날짜 / 시간 선택
 ======================================== */
 
 .day-time-grid {
@@ -515,7 +685,8 @@ textarea { min-height: 85px; resize: vertical; }
   align-items: center;
 }
 
-/* 날짜 카테고리 */
+/* 날짜 버튼 */
+
 .day-time-check {
   min-height: 50px;
   display: flex;
@@ -536,7 +707,6 @@ textarea { min-height: 85px; resize: vertical; }
   transform: translateY(-1px);
 }
 
-/* 체크박스 */
 .day-time-check input {
   width: 18px;
   height: 18px;
@@ -545,7 +715,6 @@ textarea { min-height: 85px; resize: vertical; }
   cursor: pointer;
 }
 
-/* 선택된 날짜 */
 .day-time-row:has(input[type="checkbox"]:checked)
 .day-time-check {
   border-color: #e6c900;
@@ -554,6 +723,7 @@ textarea { min-height: 85px; resize: vertical; }
 }
 
 /* 시간 입력 */
+
 .day-time-row input[type="time"] {
   width: 100%;
   height: 50px;
@@ -581,13 +751,13 @@ textarea { min-height: 85px; resize: vertical; }
   cursor: not-allowed;
 }
 
-/* 날짜를 선택하면 시간창도 하늘색 */
+/* 날짜 선택 시 시간창 */
+
 .day-time-row:has(input[type="checkbox"]:checked)
 input[type="time"] {
   border-color: var(--sky);
   background: #f5fdff;
 }
-
 
 /* ========================================
    삭제 비밀번호
@@ -625,7 +795,6 @@ input[type="time"] {
   border-color: #8edee9;
 }
 
-
 /* ========================================
    게시물 삭제 버튼
 ======================================== */
@@ -654,12 +823,101 @@ input[type="time"] {
   cursor: wait;
 }
 
+/* ========================================
+   모달 스크롤바
+======================================== */
+
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  margin: 14px 0;
+  background: transparent;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #bdebf0;
+  border-radius: 999px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: var(--sky);
+}
 
 /* ========================================
    모바일
 ======================================== */
 
+@media (max-width: 900px) {
+
+  .header,
+  .finder {
+    width: calc(100% - 30px);
+  }
+
+  .header {
+    padding-top: 28px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .logo {
+    width: 300px;
+  }
+
+  .event-date {
+    font-size: 23px;
+  }
+
+  .event-date span {
+    font-size: 16px;
+  }
+
+  .event-location {
+    font-size: 12px;
+  }
+
+  .write-button {
+    width: 100%;
+  }
+
+  .filter-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .posts-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+}
+
 @media (max-width: 600px) {
+
+  /* 메인 날짜 */
+
+  .day-tabs {
+    gap: 8px;
+  }
+
+  .day-tab {
+    min-height: 58px;
+    border-radius: 999px;
+  }
+
+  .day-tab strong {
+    font-size: 23px;
+  }
+
+  .day-tab span {
+    font-size: 13px;
+  }
+
+  /* 팝업 날짜 / 시간 */
 
   .day-time-row {
     grid-template-columns: 1fr 125px;
@@ -679,57 +937,12 @@ input[type="time"] {
     height: 50px;
   }
 
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-content {
+    padding: 32px 20px 25px;
+  }
 }
 
-/* ========================================
-   모달 스크롤바 안쪽으로 넣기
-======================================== */
-
-.modal-content {
-  overflow-y: auto;
-  scrollbar-gutter: stable;
-  padding-right: 24px;
-}
-
-/* 스크롤바 자체 */
-.modal-content::-webkit-scrollbar {
-  width: 8px;
-}
-
-/* 스크롤바 트랙 */
-.modal-content::-webkit-scrollbar-track {
-  margin: 14px 0;
-  background: transparent;
-}
-
-/* 움직이는 부분 */
-.modal-content::-webkit-scrollbar-thumb {
-  background: #bdebf0;
-  border-radius: 999px;
-}
-
-.modal-content::-webkit-scrollbar-thumb:hover {
-  background: var(--sky);
-}
-
-@media (max-width: 900px) {
-  .header, .finder { width: calc(100% - 30px); }
-  .header { padding-top: 28px; align-items: flex-start; flex-direction: column; }
-  .logo { width: 300px; }
-  .event-date { font-size: 23px; }
-  .event-date span { font-size: 16px; }
-  .event-location { font-size: 12px; }
-  .write-button { width: 100%; }
-  .filter-row { align-items: stretch; flex-direction: column; }
-  .search-box { width: 100%; }
-  .posts-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-}
-
-@media (max-width: 600px) {
-  .day-tabs { gap: 10px; }
-  .day-tab { min-height: 105px; border-radius: 28px; }
-  .day-tab strong { font-size: 45px; }
-  .day-tab span { font-size: 20px; }
-  .posts-grid { grid-template-columns: 1fr; }
-  .modal-content { padding: 32px 20px 25px; }
-}
