@@ -3,16 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>신촌 코스어 페스타</title>
   <meta name="description" content="신촌 코스어 페스타 참가자 찾기">
+
   <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
+
   <div class="page">
 
+    <!-- =========================
+         HEADER
+    ========================== -->
     <header class="header">
+
       <div class="brand-area">
-        <img src="/images/logo.png" alt="신촌 코스어 페스타" class="logo" onerror="this.style.display='none'">
+
+        <img
+          src="/images/logo.png"
+          alt="신촌 코스어 페스타"
+          class="logo"
+          onerror="this.style.display='none'"
+        >
 
         <div class="event-date">
           <strong>2026. 09. 26–27</strong>
@@ -22,87 +36,153 @@
         <div class="event-location">
           신촌 스타광장　|　창천문화공원　|　U-PLEX 신촌점
         </div>
+
       </div>
 
-      <button class="write-button" id="openWriteModal" type="button">
+      <button
+        class="write-button"
+        id="openWriteModal"
+        type="button"
+      >
         게시물 적기
       </button>
+
     </header>
 
 
+    <!-- =========================
+         FINDER
+    ========================== -->
     <section class="finder">
 
       <div class="section-heading">
-        <div>
-          <h2>
-            참가자 찾기
-            <span id="postCount">0명</span>
-          </h2>
-        </div>
+
+        <h2>
+          참가자 찾기
+          <span id="postCount">0명</span>
+        </h2>
+
       </div>
 
 
-      <!-- CATEGORY + DAY + SEARCH -->
-      <div class="filter-row">
+      <!-- =========================
+           DATE + SEARCH
+      ========================== -->
 
-        <div class="filter-group" id="categoryFilters">
-          <button class="pill active" data-filter="all" type="button">
-            전체
-          </button>
+      <div class="date-search-row">
 
-          <button class="pill" data-filter="코스어" type="button">
-            코스어
-          </button>
-
-          <button class="pill" data-filter="카메라" type="button">
-            카메라
-          </button>
-
-          <button class="pill" data-filter="일반" type="button">
-            일반
-          </button>
-        </div>
-
-
-        <!-- MAIN DAY FILTER -->
         <div class="day-tabs">
-          <button class="day-tab active" data-day="26" type="button">
+
+          <button
+            class="day-tab active"
+            data-day="26"
+            type="button"
+          >
             <strong>26</strong>
             <span>SAT</span>
           </button>
 
-          <button class="day-tab" data-day="27" type="button">
+          <button
+            class="day-tab"
+            data-day="27"
+            type="button"
+          >
             <strong>27</strong>
             <span>SUN</span>
           </button>
+
         </div>
 
 
         <label class="search-box">
+
           <span>⌕</span>
+
           <input
             id="searchInput"
             type="search"
             placeholder="장르 / 캐릭터 검색"
           >
+
         </label>
 
       </div>
 
 
-      <div class="posts-grid" id="postsContainer">
+      <!-- =========================
+           CATEGORY
+      ========================== -->
+
+      <div
+        class="filter-row"
+        id="categoryFilters"
+      >
+
+        <button
+          class="pill active"
+          data-filter="all"
+          type="button"
+        >
+          전체
+        </button>
+
+        <button
+          class="pill"
+          data-filter="코스어"
+          type="button"
+        >
+          코스어
+        </button>
+
+        <button
+          class="pill"
+          data-filter="카메라"
+          type="button"
+        >
+          카메라
+        </button>
+
+        <button
+          class="pill"
+          data-filter="일반"
+          type="button"
+        >
+          일반
+        </button>
+
+      </div>
+
+
+      <!-- =========================
+           POSTS
+      ========================== -->
+
+      <div
+        class="posts-grid"
+        id="postsContainer"
+      >
+
         <div class="loading">
           참가자 정보를 불러오는 중...
         </div>
+
       </div>
 
     </section>
 
 
-    <!-- WRITE MODAL -->
-    <div class="modal" id="writeModal" aria-hidden="true">
+    <!-- =========================
+         WRITE MODAL
+    ========================== -->
+
+    <div
+      class="modal"
+      id="writeModal"
+      aria-hidden="true"
+    >
 
       <div class="modal-background"></div>
+
 
       <div
         class="modal-content"
@@ -122,15 +202,24 @@
 
 
         <div class="modal-title">
-          <h2 id="modalTitle">내 게시물 적기</h2>
-          <p>행사에서 만날 사람들에게 내 정보를 알려주세요!</p>
+
+          <h2 id="modalTitle">
+            내 게시물 적기
+          </h2>
+
+          <p>
+            행사에서 만날 사람들에게 내 정보를 알려주세요!
+          </p>
+
         </div>
 
 
         <form id="postForm">
 
-          <!-- NICKNAME -->
+
+          <!-- 닉네임 -->
           <div class="form-group">
+
             <label for="nickname">
               닉네임 <span>*</span>
             </label>
@@ -142,16 +231,19 @@
               placeholder="ex. 신춘자"
               required
             >
+
           </div>
 
 
-          <!-- X ACCOUNT -->
+          <!-- X -->
           <div class="form-group">
+
             <label for="xAccount">
               X 계정
             </label>
 
             <div class="prefix-input">
+
               <span>@</span>
 
               <input
@@ -160,11 +252,13 @@
                 maxlength="30"
                 placeholder="본인 아이디"
               >
+
             </div>
+
           </div>
 
 
-          <!-- CATEGORY -->
+          <!-- 참여 방식 -->
           <div class="form-group">
 
             <label>
@@ -174,56 +268,74 @@
             <div class="choice-group">
 
               <label class="choice">
+
                 <input
                   type="radio"
                   name="category"
                   value="코스어"
                   required
                 >
+
                 <span>코스어</span>
+
               </label>
 
+
               <label class="choice">
+
                 <input
                   type="radio"
                   name="category"
                   value="카메라"
                 >
+
                 <span>카메라</span>
+
               </label>
 
+
               <label class="choice">
+
                 <input
                   type="radio"
                   name="category"
                   value="일반"
                 >
+
                 <span>일반</span>
+
               </label>
 
             </div>
+
           </div>
 
 
-          <!-- DATE + TIME -->
+          <!-- 날짜 / 시간 -->
           <div class="form-group">
 
             <label>
               오는 날짜 / 시간 <span>*</span>
             </label>
 
+
             <div class="day-time-grid">
+
 
               <div class="day-time-row">
 
                 <label class="day-time-check">
+
                   <input
                     type="checkbox"
                     name="days"
                     value="26"
                   >
+
                   <span>26 SAT</span>
+
                 </label>
+
 
                 <input
                   id="time26"
@@ -238,13 +350,17 @@
               <div class="day-time-row">
 
                 <label class="day-time-check">
+
                   <input
                     type="checkbox"
                     name="days"
                     value="27"
                   >
+
                   <span>27 SUN</span>
+
                 </label>
+
 
                 <input
                   id="time27"
@@ -255,7 +371,9 @@
 
               </div>
 
+
             </div>
+
 
             <p class="help-text">
               오는 날짜를 선택하고 도착 예정 시간을 입력해주세요.
@@ -264,7 +382,7 @@
           </div>
 
 
-          <!-- GENRE -->
+          <!-- 장르 -->
           <div class="form-group">
 
             <label for="genre">
@@ -281,7 +399,7 @@
           </div>
 
 
-          <!-- MESSAGE -->
+          <!-- 한마디 -->
           <div class="form-group">
 
             <label for="message">
@@ -297,12 +415,13 @@
           </div>
 
 
-          <!-- IMAGE -->
+          <!-- 이미지 -->
           <div class="form-group">
 
             <label>
               착장 / 참고 이미지
             </label>
+
 
             <label
               class="image-upload"
@@ -321,12 +440,14 @@
 
             </label>
 
+
             <input
               id="imageFile"
               type="file"
               accept="image/jpeg,image/png,image/webp"
               hidden
             >
+
 
             <div
               class="image-preview"
@@ -336,12 +457,13 @@
           </div>
 
 
-          <!-- PASSWORD -->
+          <!-- 삭제 비밀번호 -->
           <div class="form-group">
 
             <label for="deletePassword">
               삭제 비밀번호 <span>*</span>
             </label>
+
 
             <input
               id="deletePassword"
@@ -354,6 +476,7 @@
               placeholder="숫자 4자리"
               required
             >
+
 
             <p class="help-text">
               게시물 삭제 시 필요한 번호입니다. 꼭 기억해주세요!
@@ -370,6 +493,7 @@
             게시물 등록하기
           </button>
 
+
           <p
             class="form-status"
             id="formStatus"
@@ -378,10 +502,13 @@
         </form>
 
       </div>
+
     </div>
 
   </div>
 
+
   <script src="/script.js"></script>
+
 </body>
 </html>
