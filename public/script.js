@@ -456,7 +456,7 @@ function renderPosts() {
     postsContainer.innerHTML = `
       <div class="empty">
         조건에 맞는 참가자가 아직 없어요.<br>
-        직접 첫 게시물을 등록해보세요 ✦
+        직접 첫 게시물을 등록해보세요!
       </div>
     `;
 
