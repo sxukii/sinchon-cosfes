@@ -51,14 +51,16 @@ button {
     );
 }
 
-/* ========================================
-   헤더
-======================================== */
+
+/* =========================
+   HEADER
+========================= */
 
 .header {
   width: min(1440px, calc(100% - 70px));
   margin: auto;
   padding: 48px 0 28px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -84,6 +86,7 @@ button {
   align-items: baseline;
   gap: 12px;
   margin-top: 8px;
+
   color: var(--pink);
   font-weight: 900;
   font-size: 30px;
@@ -103,9 +106,12 @@ button {
   border: 3px solid var(--ink);
   border-radius: 999px;
   padding: 16px 26px;
+
   background: var(--hot-pink);
   color: #fff;
+
   font-weight: 900;
+
   box-shadow: 5px 5px 0 var(--ink);
   transition: .15s;
 }
@@ -125,18 +131,21 @@ button {
 .dot-line {
   height: 18px;
   margin: 18px 0;
+
   background-image:
     radial-gradient(
       circle,
       var(--pink) 0 4px,
       transparent 4.5px
     );
+
   background-size: 24px 24px;
 }
 
-/* ========================================
-   참가자 찾기
-======================================== */
+
+/* =========================
+   FINDER
+========================= */
 
 .finder {
   width: min(1440px, calc(100% - 70px));
@@ -155,63 +164,130 @@ button {
   margin-left: 8px;
 }
 
+
+/* =========================
+   MAIN FILTER ROW
+   CATEGORY + DAY + SEARCH
+========================= */
+
 .filter-row {
   margin-top: 24px;
+
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 15px;
+  gap: 8px;
+
+  flex-wrap: wrap;
 }
 
-.filter-group,
-.time-filters {
+.filter-group {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   align-items: center;
 }
 
-/* ========================================
-   메인 화면 카테고리 필터
-   코스어 / 카메라 / 일반
-======================================== */
 
-.pill,
-.time-pill {
+/* =========================
+   MAIN CATEGORY BUTTON
+========================= */
+
+.pill {
+  min-height: 43px;
   padding: 9px 17px;
+
   border: 2px solid var(--sky);
   border-radius: 999px;
+
   background: #fff;
   color: #45b9d1;
+
   font-weight: 900;
   transition: .15s;
 }
 
-.pill:hover,
-.time-pill:hover {
+.pill:hover {
   background: #effcff;
 }
 
-.pill.active,
-.time-pill.active {
+.pill.active {
   background: var(--sky);
   border-color: var(--sky);
   color: #fff;
 }
 
-/* ========================================
-   검색
-======================================== */
+
+/* =========================
+   MAIN DAY BUTTON
+   흰색 기본 / 하늘색 active
+========================= */
+
+.day-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.day-tab {
+  min-height: 43px;
+  padding: 9px 17px;
+
+  border: 2px solid var(--sky);
+  border-radius: 999px;
+
+  background: #fff;
+  color: #45b9d1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  font-weight: 900;
+  transition: .15s;
+
+  cursor: pointer;
+}
+
+.day-tab:hover {
+  background: #effcff;
+}
+
+.day-tab strong {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.day-tab span {
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.day-tab.active {
+  background: var(--sky);
+  border-color: var(--sky);
+  color: #fff;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
 
 .search-box {
   width: 270px;
   height: 43px;
+
   display: flex;
   align-items: center;
   gap: 8px;
+
   padding: 0 13px;
+
   border: 2px solid #9ddfe8;
   border-radius: 999px;
+
   background: #fff;
 }
 
@@ -228,71 +304,38 @@ button {
   background: transparent;
 }
 
-/* ========================================
-   메인 날짜 선택
-   26 SAT / 27 SUN
-======================================== */
 
-.day-tabs {
-  margin-top: 22px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.day-tab {
-  min-height: 70px;
-  border: 2px solid #eadf9a;
-  border-radius: 999px;
-  background: var(--yellow);
-  color: var(--ink);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  box-shadow: none;
-  transition: .15s;
-  cursor: pointer;
-}
-
-.day-tab:hover {
-  background: #ffef86;
-  border-color: #e6c900;
-  transform: translateY(-1px);
-}
-
-.day-tab strong {
-  font-size: 28px;
-  line-height: 1;
-}
-
-.day-tab span {
-  font-size: 16px;
-  font-weight: 900;
-}
-
-.day-tab.active {
-  background: #ffe96f;
-  border-color: #e6c900;
-  color: var(--ink);
-  transform: translateY(-1px);
-}
-
-/* ========================================
-   시간 필터
-======================================== */
+/* =========================
+   TIME FILTERS
+========================= */
 
 .time-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+
   margin-top: 18px;
+
   color: var(--muted);
   font-weight: 900;
 }
 
 .time-pill {
   padding: 7px 13px;
-  border-color: #b8e6ed;
+
+  border: 2px solid #b8e6ed;
+  border-radius: 999px;
+
+  background: #fff;
   color: #64a7b0;
+
   font-size: 13px;
+  font-weight: 900;
+}
+
+.time-pill:hover {
+  background: #effcff;
 }
 
 .time-pill.active {
@@ -301,12 +344,14 @@ button {
   border-color: var(--sky);
 }
 
-/* ========================================
-   게시물
-======================================== */
+
+/* =========================
+   POSTS
+========================= */
 
 .posts-grid {
   margin-top: 25px;
+
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
@@ -314,25 +359,40 @@ button {
 
 .post-card {
   overflow: hidden;
+
   border: 3px solid var(--sky);
   border-radius: 27px;
+
   background: #fff;
-  box-shadow: 0 8px 0 rgba(84,219,235,.18);
+
+  box-shadow:
+    0 8px 0 rgba(84,219,235,.18);
 }
 
 .post-image {
   width: 100%;
   aspect-ratio: 4 / 3;
+
   display: block;
+
   object-fit: cover;
+
   background: #effcff;
 }
 
 .no-image {
   aspect-ratio: 4 / 3;
+
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg,#dffcff,#f7ffe5);
+
+  background:
+    linear-gradient(
+      135deg,
+      #dffcff,
+      #f7ffe5
+    );
+
   color: #72afb7;
   font-weight: 900;
 }
@@ -356,22 +416,28 @@ button {
 
 .category {
   flex: none;
+
   padding: 5px 11px;
+
   border-radius: 999px;
+
   background: #ffcef0;
   color: #ff209e;
+
   font-size: 12px;
   font-weight: 900;
 }
 
 .x-account {
   margin-top: 4px;
+
   color: #8c9b9c;
   font-size: 13px;
 }
 
 .post-info {
   margin-top: 13px;
+
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -379,40 +445,51 @@ button {
 
 .info-tag {
   padding: 6px 9px;
+
   border-radius: 8px;
+
   background: #effcff;
   color: #3d9bb8;
+
   font-size: 12px;
   font-weight: 900;
 }
 
 .post-message {
   margin-top: 12px;
+
   color: #4e6263;
   font-size: 13px;
   line-height: 1.6;
+
   white-space: pre-wrap;
 }
 
 .loading,
 .empty {
   grid-column: 1 / -1;
+
   padding: 70px 20px;
+
   text-align: center;
+
   color: #789293;
   line-height: 1.8;
 }
 
-/* ========================================
-   모달
-======================================== */
+
+/* =========================
+   MODAL
+========================= */
 
 .modal {
   position: fixed;
   inset: 0;
   z-index: 1000;
+
   display: none;
   place-items: center;
+
   padding: 18px;
 }
 
@@ -423,19 +500,32 @@ button {
 .modal-background {
   position: absolute;
   inset: 0;
+
   background: rgba(25,60,67,.48);
+
   backdrop-filter: blur(5px);
 }
 
 .modal-content {
   position: relative;
+
   width: min(630px, 100%);
   max-height: 92vh;
+
   overflow-y: auto;
+
   padding: 40px 24px 40px 40px;
+
   border: 4px solid var(--ink);
   border-radius: 34px;
-  background: linear-gradient(145deg,#fff,#f1ffff);
+
+  background:
+    linear-gradient(
+      145deg,
+      #fff,
+      #f1ffff
+    );
+
   box-shadow: 9px 9px 0 var(--ink);
 
   scrollbar-gutter: stable;
@@ -445,9 +535,12 @@ button {
   position: absolute;
   top: 10px;
   right: 18px;
+
   border: 0;
+
   background: transparent;
   color: var(--ink);
+
   font-size: 34px;
 }
 
@@ -457,19 +550,22 @@ button {
 
 .modal-title h2 {
   margin-top: 5px;
+
   font-size: 31px;
   font-weight: 900;
 }
 
 .modal-title p:last-child {
   margin-top: 5px;
+
   color: #849596;
   font-size: 13px;
 }
 
-/* ========================================
-   입력 폼
-======================================== */
+
+/* =========================
+   FORM
+========================= */
 
 .form-group {
   margin-bottom: 21px;
@@ -477,7 +573,9 @@ button {
 
 .form-group > label:first-child {
   display: block;
+
   margin-bottom: 8px;
+
   font-size: 14px;
   font-weight: 900;
 }
@@ -489,10 +587,14 @@ button {
 input[type="text"],
 textarea {
   width: 100%;
+
   border: 2px solid #c6e7eb;
   border-radius: 13px;
+
   padding: 12px 14px;
+
   outline: 0;
+
   background: #fff;
 }
 
@@ -506,17 +608,24 @@ textarea {
   resize: vertical;
 }
 
+
+/* X ACCOUNT */
+
 .prefix-input {
   display: flex;
   align-items: center;
+
   border: 2px solid #c6e7eb;
   border-radius: 13px;
+
   background: #fff;
+
   overflow: hidden;
 }
 
 .prefix-input span {
   padding-left: 14px;
+
   color: #8b999a;
   font-weight: 900;
 }
@@ -525,11 +634,11 @@ textarea {
   border: 0 !important;
 }
 
-/* ========================================
-   팝업 카테고리
-   코스어 / 카메라 / 일반
-   ★ 메인 필터와 별개
-======================================== */
+
+/* =========================
+   POPUP CATEGORY
+   DO NOT CHANGE
+========================= */
 
 .choice-group {
   display: flex;
@@ -544,12 +653,17 @@ textarea {
 
 .choice span {
   display: block;
+
   padding: 10px 17px;
+
   border: 2px solid #c7e6ea;
   border-radius: 999px;
+
   background: #fff;
   color: var(--ink);
+
   font-weight: 900;
+
   cursor: pointer;
   transition: .15s;
 }
@@ -562,34 +676,44 @@ textarea {
 
 .help-text {
   margin-top: 6px;
+
   color: #a1acad;
   font-size: 11px;
 }
 
-/* ========================================
-   기존 시간 선택
-======================================== */
+
+/* =========================
+   OLD TIME CHOICE
+========================= */
 
 .time-grid {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 8px;
 }
 
 .time-choice span {
   display: block;
+
   padding: 12px 8px;
+
   border: 2px solid #c7e6ea;
   border-radius: 14px;
+
   background: #fff;
+
   text-align: center;
+
   font-weight: 900;
+
   cursor: pointer;
 }
 
 .time-choice small {
   display: block;
+
   margin-top: 3px;
+
   color: #a0adae;
   font-size: 10px;
 }
@@ -600,20 +724,25 @@ textarea {
   color: #2799c0;
 }
 
-/* ========================================
-   이미지 업로드
-======================================== */
+
+/* =========================
+   IMAGE
+========================= */
 
 .image-upload {
   min-height: 145px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   border: 2px dashed #83d9e5;
   border-radius: 16px;
+
   background: #f5fdff;
   color: #65a5ae;
+
   cursor: pointer;
 }
 
@@ -635,23 +764,32 @@ textarea {
 .image-preview img {
   width: 100%;
   max-height: 250px;
+
   object-fit: contain;
+
   border-radius: 14px;
+
   background: #f4ffff;
 }
 
-/* ========================================
-   등록 버튼
-======================================== */
+
+/* =========================
+   SUBMIT
+========================= */
 
 .submit-button {
   width: 100%;
+
   padding: 16px;
+
   border: 3px solid var(--ink);
   border-radius: 15px;
+
   background: var(--hot-pink);
   color: #fff;
+
   font-weight: 900;
+
   box-shadow: 4px 4px 0 var(--ink);
 }
 
@@ -662,16 +800,22 @@ textarea {
 
 .form-status {
   min-height: 20px;
+
   margin-top: 11px;
+
   text-align: center;
+
   color: #3a9eb7;
+
   font-size: 13px;
   font-weight: 900;
 }
 
-/* ========================================
-   팝업 날짜 / 시간 선택
-======================================== */
+
+/* =========================
+   POPUP DATE / TIME
+   DO NOT CHANGE
+========================= */
 
 .day-time-grid {
   display: grid;
@@ -685,19 +829,23 @@ textarea {
   align-items: center;
 }
 
-/* 날짜 버튼 */
-
 .day-time-check {
   min-height: 50px;
+
   display: flex;
   align-items: center;
   gap: 10px;
+
   padding: 11px 17px;
+
   border: 2px solid #eadf9a;
   border-radius: 999px;
+
   background: var(--yellow);
   color: var(--ink);
+
   font-weight: 900;
+
   cursor: pointer;
   transition: .15s;
 }
@@ -710,48 +858,56 @@ textarea {
 .day-time-check input {
   width: 18px;
   height: 18px;
+
   margin: 0;
+
   accent-color: #e6c900;
+
   cursor: pointer;
 }
 
-.day-time-row:has(input[type="checkbox"]:checked)
-.day-time-check {
+.day-time-row:has(input[type="checkbox"]:checked) .day-time-check {
   border-color: #e6c900;
   background: #ffe96f;
   color: var(--ink);
 }
 
-/* 시간 입력 */
-
 .day-time-row input[type="time"] {
   width: 100%;
   height: 50px;
+
   padding: 0 12px;
+
   border: 2px solid #c7e6ea;
   border-radius: 999px;
+
   background: #fff;
   color: var(--ink);
+
   font-size: 15px;
   font-weight: 900;
+
   outline: none;
+
   cursor: pointer;
+
   transition: .15s;
 }
 
 .day-time-row input[type="time"]:focus {
   border-color: var(--sky);
-  box-shadow: 0 0 0 3px rgba(103,221,244,.15);
+
+  box-shadow:
+    0 0 0 3px rgba(103,221,244,.15);
 }
 
 .day-time-row input[type="time"]:disabled {
   background: #f4f7f7;
   color: #b5c2c3;
   border-color: #dcebed;
+
   cursor: not-allowed;
 }
-
-/* 날짜 선택 시 시간창 */
 
 .day-time-row:has(input[type="checkbox"]:checked)
 input[type="time"] {
@@ -759,56 +915,77 @@ input[type="time"] {
   background: #f5fdff;
 }
 
-/* ========================================
-   삭제 비밀번호
-======================================== */
+
+/* =========================
+   PASSWORD
+========================= */
 
 #deletePassword {
   width: 100%;
   height: 52px;
+
   padding: 0 16px;
+
   border: 2px solid #c7e6ea;
   border-radius: 14px;
+
   background: #fff;
   color: var(--ink);
+
   font-size: 18px;
   font-weight: 900;
+
   letter-spacing: 7px;
+
   text-align: center;
+
   outline: none;
+
   transition: .15s;
 }
 
 #deletePassword::placeholder {
   color: #b7c6c8;
+
   font-size: 13px;
+
   letter-spacing: 0;
+
   font-weight: 700;
 }
 
 #deletePassword:focus {
   border-color: var(--pink);
-  box-shadow: 0 0 0 3px rgba(255,88,167,.12);
+
+  box-shadow:
+    0 0 0 3px rgba(255,88,167,.12);
 }
 
 #deletePassword:valid {
   border-color: #8edee9;
 }
 
-/* ========================================
-   게시물 삭제 버튼
-======================================== */
+
+/* =========================
+   DELETE
+========================= */
 
 .delete-button {
   width: 100%;
+
   margin-top: 16px;
+
   padding: 9px 12px;
+
   border: 2px solid #d9e7e9;
   border-radius: 10px;
+
   background: #fff;
   color: #9aa9aa;
+
   font-size: 12px;
   font-weight: 900;
+
   transition: .15s;
 }
 
@@ -823,9 +1000,10 @@ input[type="time"] {
   cursor: wait;
 }
 
-/* ========================================
-   모달 스크롤바
-======================================== */
+
+/* =========================
+   MODAL SCROLLBAR
+========================= */
 
 .modal-content::-webkit-scrollbar {
   width: 8px;
@@ -845,9 +1023,10 @@ input[type="time"] {
   background: var(--sky);
 }
 
-/* ========================================
-   모바일
-======================================== */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 900px) {
 
@@ -858,6 +1037,7 @@ input[type="time"] {
 
   .header {
     padding-top: 28px;
+
     align-items: flex-start;
     flex-direction: column;
   }
@@ -882,6 +1062,8 @@ input[type="time"] {
     width: 100%;
   }
 
+
+  /* 모바일에서는 필터를 세로로 */
   .filter-row {
     align-items: stretch;
     flex-direction: column;
@@ -892,32 +1074,30 @@ input[type="time"] {
   }
 
   .posts-grid {
-    grid-template-columns: repeat(2,minmax(0,1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 600px) {
 
-  /* 메인 날짜 */
+@media (max-width: 600px) {
 
   .day-tabs {
     gap: 8px;
   }
 
   .day-tab {
-    min-height: 58px;
-    border-radius: 999px;
+    min-height: 43px;
+    padding: 9px 14px;
   }
 
   .day-tab strong {
-    font-size: 23px;
+    font-size: 14px;
   }
 
   .day-tab span {
-    font-size: 13px;
+    font-size: 12px;
   }
 
-  /* 팝업 날짜 / 시간 */
 
   .day-time-row {
     grid-template-columns: 1fr 125px;
@@ -945,4 +1125,3 @@ input[type="time"] {
     padding: 32px 20px 25px;
   }
 }
-
