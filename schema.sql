@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS participants (
   genre TEXT DEFAULT '',
   message TEXT DEFAULT '',
   image_key TEXT DEFAULT '',
+  delete_password TEXT DEFAULT '',
   created_at INTEGER NOT NULL
 );
 
