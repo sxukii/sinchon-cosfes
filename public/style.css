@@ -211,6 +211,8 @@ button {
 .day-tab {
   min-height: 43px;
 
+  min-width: 76px;
+
   padding: 9px 17px;
 
   border: 2px solid #e6c900;
@@ -260,6 +262,13 @@ button {
   color: var(--ink);
 
   transform: translateY(-1px);
+}
+
+
+/* 전체 탭 */
+
+.day-tab[data-day="all"] {
+  min-width: 82px;
 }
 
 
@@ -1358,9 +1367,11 @@ input[type="time"] {
 .detail-message {
   padding: 15px;
 
+  border: 2px solid #d9eef1;
+
   border-radius: 14px;
 
-  background: #fff5fa;
+  background: #fff;
 
   color: #536667;
 
@@ -1522,20 +1533,31 @@ input[type="time"] {
 
   .day-tabs {
     width: 100%;
+
+    gap: 6px;
   }
 
   .day-tab {
+    min-width: 0;
+    width: 100%;
+
     min-height: 43px;
 
-    padding: 9px 17px;
+    padding: 9px 10px;
+
+    gap: 5px;
   }
 
   .day-tab strong {
-    font-size: 17px;
+    font-size: 16px;
   }
 
   .day-tab span {
-    font-size: 12px;
+    font-size: 11px;
+  }
+
+  .day-tab[data-day="all"] {
+    min-width: 0;
   }
 
   .search-box {

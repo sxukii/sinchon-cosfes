@@ -1,6 +1,6 @@
 const state = {
   posts: [],
-  day: "26",
+  day: "all",
   category: "all",
   search: ""
 };
@@ -98,6 +98,7 @@ function openPostDetail(postId) {
 
 
   // 기존 내용 초기화
+
   postDetailContent.innerHTML = "";
 
 
@@ -133,6 +134,7 @@ function openPostDetail(postId) {
       "NO IMAGE";
 
     postDetailContent.appendChild(noImage);
+
   }
 
 
@@ -196,6 +198,7 @@ function openPostDetail(postId) {
     postDetailContent.appendChild(
       xAccount
     );
+
   }
 
 
@@ -307,6 +310,7 @@ function openPostDetail(postId) {
     postDetailContent.appendChild(
       genreSection
     );
+
   }
 
 
@@ -352,6 +356,7 @@ function openPostDetail(postId) {
     postDetailContent.appendChild(
       messageSection
     );
+
   }
 
 
@@ -435,12 +440,16 @@ document
           b.classList.remove("active")
         );
 
+
       button.classList.add("active");
+
 
       state.day =
         button.dataset.day;
 
+
       renderPosts();
+
     });
 
   });
@@ -462,12 +471,16 @@ document
           b.classList.remove("active")
         );
 
+
       button.classList.add("active");
+
 
       state.category =
         button.dataset.filter;
 
+
       renderPosts();
+
     });
 
   });
@@ -506,10 +519,12 @@ document
         const day =
           checkbox.value;
 
+
         const timeInput =
           document.querySelector(
             `#time${day}`
           );
+
 
         if (!timeInput) {
           return;
@@ -540,6 +555,7 @@ imageFile.addEventListener(
 
     const file =
       imageFile.files[0];
+
 
     imagePreview.innerHTML = "";
 
@@ -588,8 +604,10 @@ imageFile.addEventListener(
           img
         );
 
+
         imagePreview.style.display =
           "block";
+
       };
 
 
@@ -678,6 +696,7 @@ form.addEventListener(
 
       dayTimes[day] =
         time;
+
     }
 
 
@@ -972,16 +991,26 @@ function renderPosts() {
     state.posts.filter(
       (post) => {
 
+        // 날짜 필터
+        // 전체: 26일 또는 27일 중 하나라도 참가하면 표시
+        // 26: 26일 참가자만
+        // 27: 27일 참가자만
+
         const dayMatch =
+          state.day === "all" ||
           post.days?.includes(
             state.day
           );
 
 
+        // 카테고리 필터
+
         const categoryMatch =
           state.category === "all" ||
           post.category === state.category;
 
+
+        // 검색
 
         const searchable = [
           post.nickname,
@@ -1009,9 +1038,13 @@ function renderPosts() {
     );
 
 
+  // 게시물 개수
+
   postCount.textContent =
     `${filtered.length}명`;
 
+
+  // 게시물이 없을 때
 
   if (!filtered.length) {
 
@@ -1025,6 +1058,8 @@ function renderPosts() {
     return;
   }
 
+
+  // 게시물 출력
 
   postsContainer.innerHTML =
     filtered
@@ -1049,11 +1084,13 @@ function createCard(post) {
 
 
   // 카드에 게시물 ID 저장
+
   card.dataset.postId =
     post.id;
 
 
   // 클릭 가능 표시
+
   card.setAttribute(
     "role",
     "button"
@@ -1082,15 +1119,30 @@ function createCard(post) {
     `${post.nickname}의 착장 이미지`;
 
 
-if (post.imageUrl) {
-  image.src = post.imageUrl;
-  image.loading = "lazy";
-} else {
-  const placeholder = document.createElement("div");
-  placeholder.className = "no-image";
-  placeholder.textContent = "NO IMAGE";
-  card.appendChild(placeholder);
-}
+  if (post.imageUrl) {
+
+    image.src =
+      post.imageUrl;
+
+    image.loading =
+      "lazy";
+
+  } else {
+
+    const placeholder =
+      document.createElement("div");
+
+    placeholder.className =
+      "no-image";
+
+    placeholder.textContent =
+      "NO IMAGE";
+
+    card.appendChild(
+      placeholder
+    );
+
+  }
 
 
   // ======================================
@@ -1165,6 +1217,7 @@ if (post.imageUrl) {
       top
     );
 
+
     content.appendChild(
       x
     );
@@ -1190,30 +1243,77 @@ if (post.imageUrl) {
     "post-info";
 
 
-  const selectedTime =
-    post.dayTimes?.[state.day];
+  // 전체 탭일 때
+  // 26일 + 27일 시간을 모두 표시
+
+  if (state.day === "all") {
+
+    const days =
+      Array.isArray(post.days)
+        ? post.days
+        : [];
 
 
-  if (selectedTime) {
+    days.forEach((day) => {
 
-    const tag =
-      document.createElement("span");
-
-
-    tag.className =
-      "info-tag";
+      const time =
+        post.dayTimes?.[day];
 
 
-    tag.textContent =
-      `${state.day}일 · ${selectedTime}`;
+      const tag =
+        document.createElement("span");
 
 
-    info.appendChild(
-      tag
-    );
+      tag.className =
+        "info-tag";
+
+
+      tag.textContent =
+        time
+          ? `${day}일 · ${time}`
+          : `${day}일`;
+
+
+      info.appendChild(
+        tag
+      );
+
+    });
+
+
+  } else {
+
+    // 특정 날짜를 선택했을 때
+    // 해당 날짜의 시간만 표시
+
+    const selectedTime =
+      post.dayTimes?.[state.day];
+
+
+    if (selectedTime) {
+
+      const tag =
+        document.createElement("span");
+
+
+      tag.className =
+        "info-tag";
+
+
+      tag.textContent =
+        `${state.day}일 · ${selectedTime}`;
+
+
+      info.appendChild(
+        tag
+      );
+
+    }
 
   }
 
+
+  // 장르 / 캐릭터
 
   if (post.genre) {
 
