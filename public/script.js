@@ -130,7 +130,7 @@ function openPostDetail(postId) {
       "detail-no-image";
 
     noImage.textContent =
-      "NO IMAGE ✦";
+      "NO IMAGE";
 
     postDetailContent.appendChild(noImage);
   }
@@ -1082,16 +1082,15 @@ function createCard(post) {
     `${post.nickname}의 착장 이미지`;
 
 
-  if (post.imageUrl) {
-
-    image.src =
-      post.imageUrl;
-
-    image.loading =
-      "lazy";
-
-  } 
-
+if (post.imageUrl) {
+  image.src = post.imageUrl;
+  image.loading = "lazy";
+} else {
+  const placeholder = document.createElement("div");
+  placeholder.className = "no-image";
+  placeholder.textContent = "NO IMAGE";
+  card.appendChild(placeholder);
+}
 
 
   // ======================================
