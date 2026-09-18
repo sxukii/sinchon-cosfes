@@ -1090,23 +1090,7 @@ function createCard(post) {
     image.loading =
       "lazy";
 
-  } else {
-
-    const placeholder =
-      document.createElement("div");
-
-
-    placeholder.className =
-      "no-image";
-
-
-    placeholder.textContent =
-      "NO IMAGE ✦";
-
-
-    card.appendChild(
-      placeholder
-    );
+  } 
 
   }
 
